@@ -80,5 +80,35 @@ public class DatabaseContext :DbContext
                 .WithMany(p => p.PrescriptionMedicaments)
                 .HasForeignKey(pm => pm.IdPrescription);
         });
+
+        modelBuilder.Entity<Doctor>().HasData(new List<Doctor>()
+        {
+            new Doctor() { IdDoctor = 1, FirstName = "John", LastName = "Smith", Email = "Jsmth@gmail.com" },
+            new Doctor() { IdDoctor = 2, FirstName = "Walter", LastName = "White", Email = "Heisenberg@gmail.com" }
+        });
+        
+        modelBuilder.Entity<Patient>().HasData(new List<Patient>()
+        {
+            new Patient() { IdPatient = 1, FirstName = "Skyler", LastName = "White", BirthDate = new DateTime(1990, 1, 1) },
+            new Patient() { IdPatient = 2, FirstName = "John", LastName = "Doe", BirthDate = new DateTime(1985, 5, 15) }
+        });
+        
+        modelBuilder.Entity<Medicament>().HasData(new List<Medicament>()
+        {
+            new Medicament() { IdMedicament = 1, Name = "Aspirin", Description = "Pain reliever", Type = "Analgesic" },
+            new Medicament() { IdMedicament = 2, Name = "Ibuprofen", Description = "Anti-inflammatory", Type = "NSAID" }
+        });
+        
+        modelBuilder.Entity<Prescription>().HasData(new List<Prescription>()
+        {
+            new Prescription() { IdPrescription = 1, Date = new DateTime(2023, 10, 1), DueDate = new DateTime(2023, 10, 15), IdPatient = 1, IdDoctor = 1 },
+            new Prescription() { IdPrescription = 2, Date = new DateTime(2022, 10, 5), DueDate = new DateTime(2024, 10, 20), IdPatient = 2, IdDoctor = 2 }
+        });
+        
+        modelBuilder.Entity<Prescription_Medicament>().HasData(new List<Prescription_Medicament>()
+        {
+            new Prescription_Medicament() { IdMedicament = 1, IdPrescription = 1, Dose = 500, Details = "Take twice a day" },
+            new Prescription_Medicament() { IdMedicament = 2, IdPrescription = 2, Dose = 200, Details = "Take once a day" }
+        });
     }
 }
