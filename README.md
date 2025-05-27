@@ -4,7 +4,7 @@ http://localhost:port/api/prescriptions
 
 ## GET request works by the following endpoint:
 
-http://localhost:5234/api/patients/id
+http://localhost:port/api/patients/id
 
 ## Note:
 
