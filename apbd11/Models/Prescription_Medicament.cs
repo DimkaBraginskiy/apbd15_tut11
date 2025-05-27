@@ -17,5 +17,5 @@ public class Prescription_Medicament
     public Prescription Prescription { get; set; }
     
     public int Dose { get; set; }
-    public string Details { get; set; }
+    public string Description { get; set; }
 }

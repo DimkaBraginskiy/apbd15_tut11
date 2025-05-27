@@ -70,7 +70,7 @@ public class DatabaseContext :DbContext
             pm.ToTable("Prescription_Medicament");
             pm.HasKey(e => new {e.IdMedicament, e.IdPrescription});
             pm.Property(e => e.Dose);
-            pm.Property(e => e.Details).HasMaxLength(500);
+            pm.Property(e => e.Description).HasMaxLength(500);
 
             pm.HasOne(pm => pm.Medicament)
                 .WithMany(m => m.PrescriptionMedicaments)
@@ -107,8 +107,8 @@ public class DatabaseContext :DbContext
         
         modelBuilder.Entity<Prescription_Medicament>().HasData(new List<Prescription_Medicament>()
         {
-            new Prescription_Medicament() { IdMedicament = 1, IdPrescription = 1, Dose = 500, Details = "Take twice a day" },
-            new Prescription_Medicament() { IdMedicament = 2, IdPrescription = 2, Dose = 200, Details = "Take once a day" }
+            new Prescription_Medicament() { IdMedicament = 1, IdPrescription = 1, Dose = 500, Description = "Take twice a day" },
+            new Prescription_Medicament() { IdMedicament = 2, IdPrescription = 2, Dose = 200, Description = "Take once a day" }
         });
     }
 }

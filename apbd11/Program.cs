@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IPatientsService, PatientsService>();
 builder.Services.AddScoped<IPatientsRepository, PatientsRepository>();
 builder.Services.AddScoped<IPrescriptionsService, PrescriptionsService>();
+builder.Services.AddScoped<IPrescriptionsRepository, PrescriptionsRepository>();
 
 builder.Services.AddDbContext<DatabaseContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))

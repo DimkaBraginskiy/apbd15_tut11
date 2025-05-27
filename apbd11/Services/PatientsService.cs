@@ -40,7 +40,7 @@ public class PatientsService : IPatientsService
                         IdMedicament = pm.Medicament.IdMedicament,
                         Name = pm.Medicament.Name,
                         Dose = pm.Dose,
-                        Description = pm.Details
+                        Description = pm.Description
                     }).ToList(),
                     Doctor = new DoctorResponseDto
                     {
